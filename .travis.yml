@@ -1,0 +1,6 @@
+language: java
+jdk: oraclejdk8
+#I was told that this is for speedup
+cache:
+  directories:
+  - $HOME/.m2
