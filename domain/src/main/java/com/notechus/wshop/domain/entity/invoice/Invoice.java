@@ -1,7 +1,6 @@
 package com.notechus.wshop.domain.entity.invoice;
 
 import com.notechus.wshop.util.IEntity;
-import com.sun.istack.internal.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
@@ -32,7 +31,6 @@ public class Invoice implements IEntity<UUID> {
     @Column(name = "ID")
     private UUID number;
 
-    @NotNull
     @Column(name = "DATE_TIME", nullable = false)
     private LocalDateTime date;
 
