@@ -86,6 +86,11 @@
             <artifactId>vertx-mail-client</artifactId>
             <version>${vertx.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-web-client</artifactId>
+            <version>${vertx.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
