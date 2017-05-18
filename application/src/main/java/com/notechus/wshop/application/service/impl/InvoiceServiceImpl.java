@@ -45,6 +45,6 @@ public class InvoiceServiceImpl implements InvoiceService {
     @Override
     public List<Invoice> findAll() {
         return invoiceRepository.findAll();
-        // convret
+        // convert data
     }
 }

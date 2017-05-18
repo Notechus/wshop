@@ -9,5 +9,5 @@ import java.util.UUID;
 /**
  * @author notechus.
  */
-public class InvoiceRepositoryImpl extends AbstractDummyRepository<Invoice, UUID> implements InvoiceRepository {
+public class InvoiceRepositoryDummyImpl extends AbstractDummyRepository<Invoice, UUID> implements InvoiceRepository {
 }

@@ -6,7 +6,6 @@ import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.eventbus.EventBus;
-import io.vertx.core.http.HttpClientOptions;
 import io.vertx.ext.web.client.HttpResponse;
 import io.vertx.ext.web.client.WebClient;
 
@@ -40,12 +39,5 @@ public class LogisticsVerticle extends AbstractVerticle {
         });
 
         startFuture.complete();
-    }
-
-    private HttpClientOptions prepareHttpClientOptions() {
-        HttpClientOptions options = new HttpClientOptions();
-        options.setDefaultHost("");
-        options.setDefaultPort(8080);
-        return options;
     }
 }

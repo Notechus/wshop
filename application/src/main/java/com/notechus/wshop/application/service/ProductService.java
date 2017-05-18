@@ -17,5 +17,7 @@ public interface ProductService {
 
     List<Product> getProductsByCategory(Category category);
 
+    List<Product> findAll();
+
     //TODO FIXME: add, del, update
 }
