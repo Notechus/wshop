@@ -3,6 +3,7 @@ package com.notechus.wshop.domain.entity.customer;
 import com.notechus.wshop.util.IEntity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * @author notechus.
@@ -76,5 +77,23 @@ public class Customer implements IEntity<Long> {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Customer)) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(id, customer.id) &&
+                Objects.equals(firstName, customer.firstName) &&
+                Objects.equals(lastName, customer.lastName) &&
+                Objects.equals(email, customer.email) &&
+                Objects.equals(address, customer.address) &&
+                Objects.equals(phoneNumber, customer.phoneNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, email, address, phoneNumber);
     }
 }

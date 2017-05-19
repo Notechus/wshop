@@ -7,6 +7,7 @@ import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -51,4 +52,51 @@ public class Invoice implements IEntity<UUID> {
         this.number = uuid;
     }
 
+    public UUID getNumber() {
+        return number;
+    }
+
+    public void setNumber(UUID number) {
+        this.number = number;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+
+    public List<LineItem> getLineItems() {
+        return lineItems;
+    }
+
+    public void setLineItems(List<LineItem> lineItems) {
+        this.lineItems = lineItems;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Invoice)) return false;
+        Invoice invoice = (Invoice) o;
+        return customerId == invoice.customerId &&
+                Objects.equals(number, invoice.number) &&
+                Objects.equals(date, invoice.date) &&
+                Objects.equals(lineItems, invoice.lineItems);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number, date, lineItems, customerId);
+    }
 }
