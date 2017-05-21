@@ -28,7 +28,7 @@ public class Product implements IEntity<Long> {
     @JoinTable(name = "PROPERTIES_TO_PRODUCT",
             joinColumns = {@JoinColumn(name = "PRODUCT_ID")},
             inverseJoinColumns = {@JoinColumn(name = "PROPERTIES_CODE")})
-    private List<Long> properties;
+    private List<String> properties;
 
     @ManyToOne
     @JoinColumn(name = "CATEGORY_ID")
@@ -67,11 +67,11 @@ public class Product implements IEntity<Long> {
         this.details = details;
     }
 
-    public List<Long> getProperties() {
+    public List<String> getProperties() {
         return properties;
     }
 
-    public void setProperties(List<Long> properties) {
+    public void setProperties(List<String> properties) {
         this.properties = properties;
     }
 

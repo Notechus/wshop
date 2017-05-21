@@ -2,7 +2,6 @@ package com.notechus.wshop.application.builder;
 
 import com.notechus.wshop.domain.entity.product.Category;
 import com.notechus.wshop.domain.entity.product.Product;
-import com.notechus.wshop.domain.entity.productproperties.ProductProperties;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -36,7 +35,7 @@ public class ProductBuilder {
         return this;
     }
 
-    public ProductBuilder withProperties(List<ProductProperties> productProperties) {
+    public ProductBuilder withProperties(List<String> productProperties) {
         this.product.setProperties(productProperties);
 
         return this;

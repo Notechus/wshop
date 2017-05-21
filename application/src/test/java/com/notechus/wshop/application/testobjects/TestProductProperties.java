@@ -5,6 +5,7 @@ import com.notechus.wshop.domain.entity.productproperties.ProductProperties;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author notechus.
@@ -23,5 +24,9 @@ public class TestProductProperties {
 
     public static List<ProductProperties> regularProperties() {
         return Arrays.asList(screenProperty(), ramProperty());
+    }
+
+    public static List<String> regularPropertiesIds() {
+        return regularProperties().stream().map(ProductProperties::getCode).collect(Collectors.toList());
     }
 }

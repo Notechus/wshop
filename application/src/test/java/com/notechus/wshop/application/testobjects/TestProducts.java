@@ -18,7 +18,7 @@ public class TestProducts {
                 .withDetails("product details")
                 .withCategory(new Category())
                 .withPrice(BigDecimal.ONE)
-                .withProperties(TestProductProperties.regularProperties())
+                .withProperties(TestProductProperties.regularPropertiesIds())
                 .withQuantity(1L).build();
     }
 }
