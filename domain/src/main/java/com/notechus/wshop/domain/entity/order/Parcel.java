@@ -15,20 +15,33 @@ public class Parcel {
     @Id
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "ORDER_ID")
-    private Order order;
-
     @Column(name = "STATUS")
     private ParcelStatus status;
 
     @Column(name = "PARCEL_SIZE")
     private ParcelSize size;
 
-    //TODO FIXME: add parcel size
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-/*
- * REST client w infrastructure
- */
+    public ParcelStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(ParcelStatus status) {
+        this.status = status;
+    }
+
+    public ParcelSize getSize() {
+        return size;
+    }
+
+    public void setSize(ParcelSize size) {
+        this.size = size;
+    }
 }

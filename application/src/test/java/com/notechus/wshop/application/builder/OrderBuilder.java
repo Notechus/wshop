@@ -28,7 +28,7 @@ public class OrderBuilder {
     }
 
     public OrderBuilder withTotalPrice(BigDecimal price) {
-        this.order.setTotalPrice(price);
+        this.order.setOrderPrice(price);
 
         return this;
     }

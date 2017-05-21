@@ -13,6 +13,8 @@ public class LineItem {
 
     private Long id;
 
+    private Long invoiceId;
+
     @Column(name = "PRODUCT_ID")
     private int productId;
 

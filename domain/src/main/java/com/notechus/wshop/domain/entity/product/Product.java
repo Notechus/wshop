@@ -1,6 +1,5 @@
 package com.notechus.wshop.domain.entity.product;
 
-import com.notechus.wshop.domain.entity.productproperties.ProductProperties;
 import com.notechus.wshop.util.IEntity;
 
 import javax.persistence.*;
@@ -28,8 +27,8 @@ public class Product implements IEntity<Long> {
     @ManyToMany
     @JoinTable(name = "PROPERTIES_TO_PRODUCT",
             joinColumns = {@JoinColumn(name = "PRODUCT_ID")},
-            inverseJoinColumns = {@JoinColumn(name = "CODE_ID")})
-    private List<ProductProperties> properties; //TODO FIXME: list of IDs
+            inverseJoinColumns = {@JoinColumn(name = "PROPERTIES_CODE")})
+    private List<Long> properties;
 
     @ManyToOne
     @JoinColumn(name = "CATEGORY_ID")
@@ -68,11 +67,11 @@ public class Product implements IEntity<Long> {
         this.details = details;
     }
 
-    public List<ProductProperties> getProperties() {
+    public List<Long> getProperties() {
         return properties;
     }
 
-    public void setProperties(List<ProductProperties> properties) {
+    public void setProperties(List<Long> properties) {
         this.properties = properties;
     }
 

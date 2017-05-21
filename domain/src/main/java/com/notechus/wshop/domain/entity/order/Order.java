@@ -22,8 +22,8 @@ public class Order implements IEntity<Long> {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "TOTAL_PRICE")
-    private BigDecimal totalPrice;
+    @Column(name = "ORDER_PRICE")
+    private BigDecimal orderPrice;
 
     @Column(name = "SHIPPING_PRICE")
     private BigDecimal shippingPrice;
@@ -32,6 +32,8 @@ public class Order implements IEntity<Long> {
     @JoinColumn(name = "CUSTOMER_ID")
     private Customer customer;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn
     private List<OrderItem> orderItems;
 
     @OneToOne
@@ -51,12 +53,12 @@ public class Order implements IEntity<Long> {
         this.id = id;
     }
 
-    public BigDecimal getTotalPrice() {
-        return totalPrice;
+    public BigDecimal getOrderPrice() {
+        return orderPrice;
     }
 
-    public void setTotalPrice(BigDecimal totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setOrderPrice(BigDecimal orderPrice) {
+        this.orderPrice = orderPrice;
     }
 
     public BigDecimal getShippingPrice() {
@@ -105,7 +107,7 @@ public class Order implements IEntity<Long> {
         if (!(o instanceof Order)) return false;
         Order order = (Order) o;
         return Objects.equals(id, order.id) &&
-                Objects.equals(totalPrice, order.totalPrice) &&
+                Objects.equals(orderPrice, order.orderPrice) &&
                 Objects.equals(shippingPrice, order.shippingPrice) &&
                 Objects.equals(customer, order.customer) &&
                 Objects.equals(orderItems, order.orderItems) &&
@@ -115,6 +117,6 @@ public class Order implements IEntity<Long> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, totalPrice, shippingPrice, customer, orderItems, parcel, orderDate);
+        return Objects.hash(id, orderPrice, shippingPrice, customer, orderItems, parcel, orderDate);
     }
 }
