@@ -12,11 +12,12 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "PRODUCT_PROPERTIES")
+@SequenceGenerator(name = "PRODUCTPROPERTIES_SEQ", sequenceName = "PRODUCTPROPERTIES_SEQ")
 public class ProductProperties implements IEntity<Long> {
 
     @Id
-    @GeneratedValue()
-    @Column(name = "CODE")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PRODUCTPROPERTIES_SEQ")
+    @Column(name = "ID")
     private Long id;
 
     @Column(name = "NAME")

@@ -29,7 +29,7 @@ public class Invoice implements IEntity<UUID> {
                             value = "org.hibernate.number.uuid.CustomVersionOneStrategy"
                     )
             })
-    @Column(name = "ID")
+    @Column(name = "NUMBER")
     private UUID number;
 
     @Column(name = "DATE_TIME", nullable = false)

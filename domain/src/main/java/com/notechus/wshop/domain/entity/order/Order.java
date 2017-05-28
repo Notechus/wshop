@@ -16,10 +16,11 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "ORDER")
+@SequenceGenerator(name = "ORDER_SEQ", sequenceName = "ORDER_SEQ")
 public class Order implements IEntity<Long> {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDER_SEQ")
     private Long id;
 
     @Column(name = "ORDER_PRICE")

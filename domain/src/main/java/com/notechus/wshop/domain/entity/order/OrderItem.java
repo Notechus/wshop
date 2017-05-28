@@ -1,13 +1,16 @@
 package com.notechus.wshop.domain.entity.order;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * @author notechus.
  */
 @Entity
+@SequenceGenerator(sequenceName = "ORDERITEM_SEQ", name = "ORDERITEM_SEQ")
 public class OrderItem {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDERITEM_SEQ")
     private Long id;
 
     private Long orderId;

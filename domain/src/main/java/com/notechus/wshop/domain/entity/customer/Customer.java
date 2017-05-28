@@ -10,10 +10,11 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "CUSTOMER")
+@SequenceGenerator(sequenceName = "CUSTOMER_SEQ", name = "CUSTOMER_SEQ")
 public class Customer implements IEntity<Long> {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUSTOMER_SEQ")
     private Long id;
 
     @Column(name = "FIRST_NAME")
