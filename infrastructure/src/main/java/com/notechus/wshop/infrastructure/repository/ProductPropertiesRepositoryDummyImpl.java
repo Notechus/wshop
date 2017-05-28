@@ -7,5 +7,5 @@ import com.notechus.wshop.util.repository.AbstractDummyRepository;
 /**
  * @author notechus.
  */
-public class ProductPropertiesRepositoryDummyImpl extends AbstractDummyRepository<ProductProperties, String> implements ProductPropertiesRepository {
+public class ProductPropertiesRepositoryDummyImpl extends AbstractDummyRepository<ProductProperties, Long> implements ProductPropertiesRepository {
 }

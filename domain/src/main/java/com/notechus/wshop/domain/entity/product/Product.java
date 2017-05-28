@@ -12,10 +12,11 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "PRODUCT")
+@SequenceGenerator(name = "PRODUCT_SEQ", sequenceName = "PRODUCT_SEQ")
 public class Product implements IEntity<Long> {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PRODUCT_SEQ")
     private Long id;
 
     @Column(name = "NAME")
@@ -28,7 +29,7 @@ public class Product implements IEntity<Long> {
     @JoinTable(name = "PROPERTIES_TO_PRODUCT",
             joinColumns = {@JoinColumn(name = "PRODUCT_ID")},
             inverseJoinColumns = {@JoinColumn(name = "PROPERTIES_CODE")})
-    private List<String> properties;
+    private List<Long> properties;
 
     @ManyToOne
     @JoinColumn(name = "CATEGORY_ID")
@@ -67,11 +68,11 @@ public class Product implements IEntity<Long> {
         this.details = details;
     }
 
-    public List<String> getProperties() {
+    public List<Long> getProperties() {
         return properties;
     }
 
-    public void setProperties(List<String> properties) {
+    public void setProperties(List<Long> properties) {
         this.properties = properties;
     }
 

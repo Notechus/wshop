@@ -35,7 +35,7 @@ public class ProductBuilder {
         return this;
     }
 
-    public ProductBuilder withProperties(List<String> productProperties) {
+    public ProductBuilder withProperties(List<Long> productProperties) {
         this.product.setProperties(productProperties);
 
         return this;

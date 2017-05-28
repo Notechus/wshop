@@ -13,8 +13,8 @@ public class ProductPropertiesBuilder {
         this.productProperties = new ProductProperties();
     }
 
-    public ProductPropertiesBuilder withCode(String code) {
-        this.productProperties.setCode(code);
+    public ProductPropertiesBuilder withId(Long id) {
+        this.productProperties.setId(id);
 
         return this;
     }

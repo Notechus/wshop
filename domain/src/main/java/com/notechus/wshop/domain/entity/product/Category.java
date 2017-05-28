@@ -1,16 +1,16 @@
 package com.notechus.wshop.domain.entity.product;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @author notechus.
  */
 @Embeddable
+@SequenceGenerator(name = "CATEGORY_SEQ", sequenceName = "CATEGORY_SEQ")
 public class Category {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CATEGORY_SEQ")
     private Long id;
 
     @Column(name = "NAME")

@@ -15,18 +15,18 @@ public class TestProductProperties {
     private static ProductPropertiesBuilder builder = new ProductPropertiesBuilder();
 
     public static ProductProperties screenProperty() {
-        return builder.withCode("1X").withName("Screen").withValue("4'").build();
+        return builder.withId(1L).withName("Screen").withValue("4'").build();
     }
 
     public static ProductProperties ramProperty() {
-        return builder.withCode("2X").withName("RAM").withValue("2GB").build();
+        return builder.withId(2L).withName("RAM").withValue("2GB").build();
     }
 
     public static List<ProductProperties> regularProperties() {
         return Arrays.asList(screenProperty(), ramProperty());
     }
 
-    public static List<String> regularPropertiesIds() {
-        return regularProperties().stream().map(ProductProperties::getCode).collect(Collectors.toList());
+    public static List<Long> regularPropertiesIds() {
+        return regularProperties().stream().map(ProductProperties::getId).collect(Collectors.toList());
     }
 }

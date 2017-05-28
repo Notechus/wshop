@@ -2,10 +2,7 @@ package com.notechus.wshop.domain.entity.productproperties;
 
 import com.notechus.wshop.util.IEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 /**
@@ -15,11 +12,12 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "PRODUCT_PROPERTIES")
-public class ProductProperties implements IEntity<String> {
+public class ProductProperties implements IEntity<Long> {
 
     @Id
+    @GeneratedValue()
     @Column(name = "CODE")
-    private String code;
+    private Long id;
 
     @Column(name = "NAME")
     private String name;
@@ -28,21 +26,13 @@ public class ProductProperties implements IEntity<String> {
     private String value;
 
     @Override
-    public String getId() {
-        return code;
+    public Long getId() {
+        return id;
     }
 
     @Override
-    public void setId(String id) {
-        this.code = id;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -66,13 +56,13 @@ public class ProductProperties implements IEntity<String> {
         if (this == o) return true;
         if (!(o instanceof ProductProperties)) return false;
         ProductProperties that = (ProductProperties) o;
-        return Objects.equals(code, that.code) &&
+        return Objects.equals(id, that.id) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(value, that.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, name, value);
+        return Objects.hash(id, name, value);
     }
 }
