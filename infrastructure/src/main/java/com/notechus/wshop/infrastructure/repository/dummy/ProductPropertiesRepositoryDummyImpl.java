@@ -1,4 +1,4 @@
-package com.notechus.wshop.infrastructure.repository;
+package com.notechus.wshop.infrastructure.repository.dummy;
 
 import com.notechus.wshop.domain.entity.productproperties.ProductProperties;
 import com.notechus.wshop.domain.repository.ProductPropertiesRepository;

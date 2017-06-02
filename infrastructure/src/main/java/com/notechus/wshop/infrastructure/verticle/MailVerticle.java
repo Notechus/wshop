@@ -1,5 +1,6 @@
 package com.notechus.wshop.infrastructure.verticle;
 
+import com.notechus.wshop.util.type.Email;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 import io.vertx.core.eventbus.impl.codecs.JsonObjectMessageCodec;
@@ -32,11 +33,14 @@ public class MailVerticle extends AbstractVerticle {
         MailClient mailClient = MailClient.createNonShared(vertx, config);
 
         vertx.eventBus().registerCodec(new JsonObjectMessageCodec()).consumer("wshop.mail", message -> {
-            if (MailMessage.class.isAssignableFrom(message.body().getClass()))
-                mailClient.sendMail((MailMessage) message.body(), res -> {
-                    if (res.succeeded()) System.out.println("Successfully sent email");
-                    else System.err.println("Email could not be sent");
-                });
+            if (Email.class.isAssignableFrom(message.body().getClass())) {
+                Email mail = (Email) message.body();
+                mailClient.sendMail(new MailMessage(mail.getFrom(), mail.getTo(), mail.getSubject(), mail.getText()),
+                        res -> {
+                            if (res.succeeded()) System.out.println("Successfully sent email");
+                            else System.err.println("Email could not be sent");
+                        });
+            }
         });
 
         startFuture.complete();
